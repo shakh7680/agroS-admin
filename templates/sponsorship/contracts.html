@@ -1,0 +1,45 @@
+{% extends 'admin.html' %}
+
+{% block title%}
+Contracts
+{% endblock %}
+
+{% block content %}
+<div class="col-xl-12 col-lg-7 mb-4">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Contracts beetween sponsorship and farmers</h1>
+  </div>
+  <div class="card">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Contracts</h6>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th> Contract id</th>
+            <th> Farmer Name (farmer id)</th>
+            <th> Investor Name(Investor id)</th>
+            <th> Service amount</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for contract in contracts %}
+          <tr>
+            <td><a href="#">{{contract.id}}</a></td>
+            <td>{{contract.farmer_id.first_name}} ({{contract.farmer_id.id}})</td>
+            <td>{{contract.investor_id.first_name}} ({{contract.investor_id.id}})</td>
+            <td>{{contract.amount}}</td>
+          </tr>
+
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer"></div>
+  </div>
+</div>
+
+{% endblock %}

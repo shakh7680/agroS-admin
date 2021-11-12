@@ -1,0 +1,45 @@
+{% extends 'admin.html' %}
+
+{% block title%}
+Services by Farmers
+{% endblock %}
+
+{% block content %}
+<div class="col-xl-12 col-lg-7 mb-4">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Services By Farmer</h1>
+  </div>
+  <div class="card">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Services</h6>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th> Farmer id</th>
+            <th> First Name</th>
+            <th> Service type</th>
+            <th> Service definition</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for service in services %}
+          <tr>
+            <td><a href="#">{{service.id}}</a></td>
+            <td>{{service.farmer_id.first_name}}</td>
+            <td>{{service.service_type}}</td>
+            <td>{{service.service_definition}}</td>
+          </tr>
+
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer"></div>
+  </div>
+</div>
+
+{% endblock %}

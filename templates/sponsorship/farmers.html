@@ -1,0 +1,51 @@
+{% extends 'admin.html' %}
+
+{% block title%}
+Farmers
+{% endblock %}
+
+{% block content %}
+<div class="col-xl-12 col-lg-7 mb-4">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Farmers :</h1>
+  </div>
+  <div class="card">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Farmers</h6>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th>  Farmer id</th>
+            <th> First Name</th>
+            <th> Last Name</th>
+            <th> Contact</th>
+            <th> Experience</th>
+            <th> Business Type</th>
+            <th> Activity Type</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for farmer in farmers %}
+          <tr>
+            <td><a href="#">{{farmer.id}}</a></td>
+            <td>{{farmer.first_name}}</td>
+            <td>{{farmer.last_name}}</td>
+            <td>{{farmer.phone_number}}</td>
+            <td>{{farmer.experience}}</td>
+            <td>{{farmer.business_type}}</td>
+            <td>{{farmer.activity_type}}</td>
+          </tr>
+
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer"></div>
+  </div>
+</div>
+
+{% endblock %}

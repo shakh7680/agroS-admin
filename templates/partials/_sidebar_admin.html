@@ -25,11 +25,10 @@
       <div id="collapseTable_sponsorship" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <hr class="sidebar-divider my-0">
-          <a class="collapse-item" href="simple-tables.html">Farmers </a>
-          <a class="collapse-item" href="datatables.html">Investors</a>
-          <a class="collapse-item" href="datatables.html">Farmer-services</a>
-          <a class="collapse-item" href="datatables.html">Experts</a>
-
+          <a class="collapse-item" href="{% url 'farmers' %}">Farmers </a>
+          <a class="collapse-item" href="{% url 'investors' %}">Investors</a>
+          <a class="collapse-item" href="{% url 'farmer_services' %}">Farmer-services</a>
+          <a class="collapse-item" href="{% url 'contracts' %}">Contracts</a>
         </div>
       </div>
     </li>

@@ -34,3 +34,44 @@ class Contract(models.Model):
         return self.amount
 
 # Collabration
+class Seminar(models.Model):
+    name_of_seminar = models.CharField(max_length=50)
+    tutor = models.CharField(max_length= 100)
+    cost = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.name_of_seminar
+
+class Event(models.Model):
+    name_of_event = models.CharField(max_length=50)
+    tutor = models.CharField(max_length=50)
+    cost = models.IntegerField()
+    date = models.DateTimeField()
+    deadline = models.DateTimeField() 
+    def __str__(self):
+        return self.name_of_event
+
+class New(models.Model):
+    name_of_news = models.CharField(max_length=50)
+    definition = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.name_of_news
+
+class Tips(models.Model):
+    name_of_tip = models.CharField(max_length=50)
+    author_of_tip = models.CharField(max_length=50)
+    definition = models.TextField()
+    def __str__(self):
+        return self.name_of_tip
+
+class Experts(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length= 100)
+    phone_number = models.CharField(max_length=20)
+    experience = models.IntegerField()
+    activity_type = models.CharField(max_length=20)
+    def __str__(self):
+        return self.first_name

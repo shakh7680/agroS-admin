@@ -1,40 +1,53 @@
-(function ($) {
-    /*--/ Star Counter /--*/
-
-    // Begin jQuery
-    $(function () {
-      
-        // DOM ready
-        // If a link has a dropdown, add sub menu toggle.
-        $("nav ul li").hover(function (e) {
-            var isHovered = $(this).is(":hover");
-            if (isHovered) {
-                $(this).children("ul").stop().slideDown(300);
-            } else {
-                $(this).children("ul").stop().slideUp(300);
-            }
-            e.stopPropagation();
-        });
-        // Clicking away from dropdown will remove the dropdown class
-        $("html").click(function () {
-            $(".nav-dropdown").hide();
-        });
-        // Toggle open and close nav styles on click
-        $("#nav-toggle").click(function () {
-            $("nav ul").slideToggle();
-        });
-
-        $("nav ul li > a").on("click", function () {
-            $(this).parent().find("ul").first().toggle(300);
-
-            $(this).parent().siblings().find("ul").hide(200);
-
-            //Hide menu when clicked outside
-        });
-
-        // Hamburger to X toggle
-        $("#nav-toggle").on("click", function () {
-            this.classList.toggle("active");
-        });
-    }); // end DOM ready
-})(jQuery); // end jQuery
+var barChartData = {
+    labels: [
+      "Last 4 year",
+      "Last 3 year",
+      "Last 2 yera",
+      "Last year",
+      "This year",
+    ],
+    datasets: [
+      {
+        label: "$ Invested",
+        backgroundColor: "pink",
+        borderColor: "red",
+        borderWidth: 1,
+        data: [3, 5, 6, 10, 8 ]
+      },
+      {
+        label: "$ Resturned",
+        backgroundColor: "lightblue",
+        borderColor: "blue",
+        borderWidth: 1,
+        data: [4, 7, 7, 10, 15 ]
+      }
+    ]
+  };
+  
+  var chartOptions = {
+    responsive: true,
+    legend: {
+      position: "top"
+    },
+    title: {
+      display: true,
+      text: "Past 5 year information"
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+  
+  window.onload = function() {
+    var ctx = document.getElementById("canvas").getContext("2d");
+    window.myBar = new Chart(ctx, {
+      type: "bar",
+      data: barChartData,
+      options: chartOptions
+    });
+  };
+  

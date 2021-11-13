@@ -1,15 +1,13 @@
+{% load static%}
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-      <div class="sidebar-brand-icon">
-        <img src="../media/logo.jpg" >
-      </div>
-      <div class="sidebar-brand-text mx-3">Admin Dashboard</div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <div class="sidebar-brand-text mx-3"><img src="{% static 'image/asset11.png' %}" ></div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
       <a class="nav-link" href="{% url 'admin_dashboard' %}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
+        <span>Admin Dashboard</span></a>
     </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
@@ -20,7 +18,7 @@
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable_sponsorship" aria-expanded="true"
         aria-controls="collapseTable">
         <i class="fas fa-handshake"></i>
-        <span>Sponsorship</span>
+        <span>Investments</span>
       </a>
       <div id="collapseTable_sponsorship" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
@@ -42,11 +40,11 @@
       <div id="collapseTable_collabration" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <hr class="sidebar-divider my-0">
-          <a class="collapse-item" href="simple-tables.html">Online Seminars</a>
-          <a class="collapse-item" href="datatables.html">Offline Events</a>
-          <a class="collapse-item" href="datatables.html">News</a>
-          <a class="collapse-item" href="datatables.html">Tips</a>
-          <a class="collapse-item" href="datatables.html">Experts</a>
+          <a class="collapse-item" href="{% url 'seminars' %}">Online Seminars</a>
+          <a class="collapse-item" href="{% url 'events' %}">Offline Events</a>
+          <a class="collapse-item" href="{% url 'news' %}">News</a>
+          <a class="collapse-item" href="{% url 'tips' %}">Tips</a>
+          <a class="collapse-item" href="{% url 'experts' %}">Experts</a>
         </div>
       </div>
     </li>
@@ -60,13 +58,14 @@
       <div id="collapseTable_marketplace" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <hr class="sidebar-divider my-0">
-          <a class="collapse-item" href="simple-tables.html">Local Market</a>
-          <a class="collapse-item" href="datatables.html">Global market</a>
-          <a class="collapse-item" href="datatables.html">Logistics</a>
+          <a class="collapse-item" href="{% url 'local_market' %}">Local Market</a>
+          <a class="collapse-item" href="{% url 'global_market' %}">Global market</a>
           <hr class="sidebar-divider my-0">
           <h6 class="collapse-header">Fertilizers</h6>
-          <a class="collapse-item" href="datatables.html">All types</a>
-          <a class="collapse-item" href="datatables.html">Delivery</a>
+          <a class="collapse-item" href="{% url 'fertilizer' %}">All types</a>
+          <hr class="sidebar-divider my-0">
+          <h6 class="collapse-header">Delivery</h6>
+          <a class="collapse-item" href="{% url 'delivery' %}">Logistics</a>
         </div>
       </div>
     </li>
@@ -80,9 +79,9 @@
       <div id="collapseTable_machine" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <hr class="sidebar-divider my-0">
-          <a class="collapse-item" href="simple-tables.html">Machine Owners</a>
-          <a class="collapse-item" href="datatables.html">Renting Machines</a>
-          <a class="collapse-item" href="datatables.html">Available Machines</a>
+          <a class="collapse-item" href="{% url 'machine_owners' %}">Machine Owners</a>
+          <a class="collapse-item" href="{% url 'renting_machines' %}">Renting Machines</a>
+          <a class="collapse-item" href="{% url 'available_machines' %}">Available Machines</a>
         </div>
       </div>
     </li>

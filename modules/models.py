@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db.models.base import Model
 # Create your models here.
 # Sponsorship
 class Farmer(models.Model):
@@ -75,3 +76,43 @@ class Experts(models.Model):
     activity_type = models.CharField(max_length=20)
     def __str__(self):
         return self.first_name
+
+class Fertilizer(models.Model):
+    name_of_fertilizer = models.CharField(max_length=20)
+    used_for_what = models.CharField(max_length=50)
+    cost = models.DecimalField(max_digits=10,decimal_places=3)
+    how_much_available = models.DecimalField(max_digits=10,decimal_places=3)
+    def __str__(self):
+        return self.name_of_fertilizer
+
+class DeliveryOfGoods(models.Model):
+    name_of_good = models.CharField(max_length=50)
+    how_amount = models.DecimalField(max_digits=10,decimal_places=3)
+    where_to_deliver = models.CharField(max_length=50)
+    status = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(2)]) 
+    deadline_to_delivery = models.DateTimeField()
+
+class LocalGlobalMarket(models.Model):
+    name_of_good = models.CharField(max_length=50)
+    cost = models.DecimalField(max_digits=10,decimal_places=3)
+    how_much_available = models.DecimalField(max_digits=10,decimal_places=3)
+    local_global = models.BooleanField(default=False)
+    is_sold = models.BooleanField(default=False)
+    def __str__(self):
+        return self.name_of_good
+
+# Machine Renting
+class MachineOwners(models.Model):
+    FullName = models.CharField(max_length=100)
+    TypeOfMachine = models.CharField(max_length=50)
+    Cost_Machine_day = models.DecimalField(max_digits=10,decimal_places=2)
+    def __str__(self):
+        return self.TypeOfMachine
+
+class Machines(models.Model):
+    TypeOfMachine = models.CharField(max_length=50)
+    status = models.CharField(max_length=30)
+    who_rent = models.CharField(max_length=50, blank=True)
+    def __str__(self):
+        return self.TypeOfMachine
+

@@ -1,0 +1,49 @@
+{% extends 'admin.html' %}
+
+{% block title%}
+Events
+{% endblock %}
+
+{% block content %}
+<div class="col-xl-12 col-lg-7 mb-4">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Events</h1>
+  </div>
+  <div class="card">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Events</h6>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th> Event id</th>
+            <th> Event title</th>
+            <th> Tutor </th>
+            <th> Cost</th>
+            <th> Date</th>
+            <th> Deadline for applying</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for event in events %}
+          <tr>
+            <td><a href="#">{{event.id}}</a></td>
+            <td>{{event.name_of_events}}</td>
+            <td>{{event.tutor}}</td>
+            <td>{{event.cost}}</td>
+            <td>{{event.date}}</td>
+            <td>{{event.deadline}}</td>
+          </tr>
+
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer"></div>
+  </div>
+</div>
+
+{% endblock %}

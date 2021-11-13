@@ -17,7 +17,7 @@ Farmers
       <table class="table align-items-center table-flush">
         <thead class="thead-light">
           <tr>
-            <th>  Farmer id</th>
+            <th> Farmer id</th>
             <th> First Name</th>
             <th> Last Name</th>
             <th> Contact</th>
@@ -31,7 +31,7 @@ Farmers
           {% for farmer in farmers %}
           <tr>
             <td><a href="#">{{farmer.id}}</a></td>
-            <td>{{farmer.first_name}}</td>
+            <td><a href="{% url 'farmer' farmer.id %}">{{farmer.first_name}}</a></td>
             <td>{{farmer.last_name}}</td>
             <td>{{farmer.phone_number}}</td>
             <td>{{farmer.experience}}</td>

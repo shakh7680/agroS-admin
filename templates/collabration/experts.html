@@ -1,40 +1,40 @@
 {% extends 'admin.html' %}
 
 {% block title%}
-Online Seminars
+Experts
 {% endblock %}
 
 {% block content %}
 <div class="col-xl-12 col-lg-7 mb-4">
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Online Seminars</h1>
+    <h1 class="h3 mb-0 text-gray-800">Experts :</h1>
   </div>
   <div class="card">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h6 class="m-0 font-weight-bold text-primary">Online Seminars</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Experts</h6>
     </div>
     <div class="table-responsive">
       <table class="table align-items-center table-flush">
         <thead class="thead-light">
           <tr>
-            <th> Seminar id</th>
-            <th> Seminar title</th>
-            <th> Tutor </th>
-            <th> Cost of seminar</th>
-            <th> Created_at</th>
-            <th> Updated_at</th>
+            <th> Expert id</th>
+            <th> First Name</th>
+            <th> Last Name</th>
+            <th> Contact</th>
+            <th> Experience</th>
+            <th> Activity Type</th>
           </tr>
         </thead>
         <tbody>
 
-          {% for seminar in seminars %}
+          {% for expert in experts %}
           <tr>
-            <td><a href="#">{{seminar.id}}</a></td>
-            <td>{{seminar.name_of_seminar}}</td>
-            <td>{{seminar.tutor}}</td>
-            <td>{{seminar.cost}}</td>
-            <td>{{seminar.created_at}}</td>
-            <td>{{seminar.updated_at}}</td>
+            <td><a href="#">{{expert.id}}</a></td>
+            <td>{{expert.first_name}}</td>
+            <td>{{expert.last_name}}</td>
+            <td>{{expert.phone_number}}</td>
+            <td>{{expert.experience}}</td>
+            <td>{{expert.activity_type}}</td>
           </tr>
 
           {% endfor %}

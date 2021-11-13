@@ -1,17 +1,19 @@
 {% extends 'admin.html' %}
 
 {% block title%}
-Local Market
+{{farmer_info.first_name}} {{farmer_info.last_name}}
 {% endblock %}
 
 {% block content %}
 <div class="col-xl-12 col-lg-7 mb-4">
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Local Market</h1>
+    <h1 class="h3 mb-0 text-gray-800">{{farmer_info.first_name}} {{farmer_info.last_name}}</h1>
   </div>
-  <div class="pb-5">
-    <canvas id="speedChart" width="600" height="250"></canvas>
-</div>
+  
+  <div id="container" style="width: 75%;">
+    <canvas id="canvas"></canvas>
+  </div>
+
   <div class="card">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       <h6 class="m-0 font-weight-bold text-primary">Local Market</h6>
@@ -31,25 +33,14 @@ Local Market
         </thead>
         <tbody>
 
-          {% for local_market in local_markets %}
+          
           <tr>
-            <td><a href="#">{{local_market.id}}</a></td>
-            <td>{{local_market.name_of_good}}</td>
-            <td>{{local_market.cost}}</td>
-            <td>{{local_market.how_much_available}}</td>
-            {% if local_global %}
-            <td>Global goods</td>
-            {% else %}
-            <td>Local goods</td>
-            {% endif %}
-            {% if is_sold %}
-            <td><button type="button" class="btn btn-success" disabled>Sold Out</button></td>
-            {% else %}
-            <td><button type="button" class="btn btn-secondary" disabled>Not yet</button></td>
-            {% endif %}
+            <td><a href="#">{{farmer_info.id}}</a></td>
+            <td>{{farmer_info.first_name}}</td>
+         
           </tr>
 
-          {% endfor %}
+          
 
         </tbody>
         <tfoot>

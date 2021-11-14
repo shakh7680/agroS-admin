@@ -1,0 +1,45 @@
+{% extends 'admin.html' %}
+
+{% block title%}
+Machine Owners
+{% endblock %}
+
+{% block content %}
+<div class="col-xl-12 col-lg-7 mb-4">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Machine Owners</h1>
+  </div>
+  <div class="card">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Machine Owners</h6>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th> Farmer id</th>
+            <th> Full Name</th>
+            <th> Machine Type</th>
+            <th> Average Cost of machine per day</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for owner in owners %}
+          <tr>
+            <td><a href="#">{{owner.id}}</a></td>
+            <td>{{owner.FullName}}</td>
+            <td>{{owner.TypeOfMachine}}</td>
+            <td>{{owner.Cost_Machine_day}}</td>
+          </tr>
+
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer"></div>
+  </div>
+</div>
+
+{% endblock %}

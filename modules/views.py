@@ -109,14 +109,14 @@ def machine_owners(request):
     return render(request, 'machine_renting/machine_owners.html', context)
 
 def renting_machines(request):
-    rented_machines = Machines.objects.all()
+    rented_machines = Machines.objects.filter(status='hired')
     context = {
         'rented_machines' : rented_machines
     }
     return render(request, 'machine_renting/renting_machines.html', context)
 
 def available_machines(request):
-    available_machines = Machines.objects.all()
+    available_machines = Machines.objects.filter(status='available')
     context = {
         'available_machines' : available_machines
     }

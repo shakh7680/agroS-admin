@@ -1,0 +1,109 @@
+{% extends 'admin.html' %}
+
+{% block title%}
+Global Market
+{% endblock %}
+
+{% block content %}
+<div class="col-xl-12 col-lg-7 mb-4">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Global Market</h1>
+  </div>
+  <div class="pb-5">
+    <canvas id="speedChart" width="600" height="250"></canvas>
+</div>
+  <div class="card">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Global Market</h6>
+    </div>
+    
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th> Goods id</th>
+            <th> Name of Good</th>
+            <th> Cost per unit </th>
+            <th> How much availbale in kg</th>
+            <th> Local or Global ?</th>
+            <th> Sold ?</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for local_market in local_markets %}
+          <tr>
+            <td><a href="#">{{local_market.id}}</a></td>
+            <td>{{local_market.name_of_good}}</td>
+            <td>{{local_market.cost}}</td>
+            <td>{{local_market.how_much_available}}</td>
+            {% if local_global %}
+            <td>Global goods</td>
+            {% else %}
+            <td>Local goods</td>
+            {% endif %}
+            {% if is_sold %}
+            <td><button type="button" class="btn btn-success" disabled>Sold Out</button></td>
+            {% else %}
+            <td><button type="button" class="btn btn-secondary" disabled>Not yet</button></td>
+            {% endif %}
+          </tr>
+
+          {% endfor %}
+
+        </tbody>
+        <tfoot>
+            <tr>
+              <div class="col-md-12 mt-2 pl-3">
+                {% if local_markets.has_other_pages %}
+                <ul class="pagination">
+                  <!-- back arrow -->
+                  {% if local_markets.has_previous  %}
+                  <li class="page-item">
+                    <a href="?page={{local_markets.previous_page_number}}" class="page-link">
+                      &laquo;
+                    </a>
+                  </li>
+                  {% else %}
+                  <li class="page-item disabled">
+                    <a class="page-link">&laquo;</a>
+                  </li>
+                  {% endif %}
+                  <!-- Pages links -->
+                  {% for i in local_markets.paginator.page_range %}
+                  {% if local_markets.number == i %}
+                  <li class="page-item active">
+                    <a class="page-link">{{i}}</a>
+                  </li>
+                  {% else %}
+                  <li class="page-item">
+                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+  
+                  <!-- next arrow -->
+                  {% if local_markets.has_next  %}
+                  <li class="page-item">
+                    <a href="?page={{local_markets.next_page_number}}" class="page-link">
+                      &raquo;
+                    </a>
+                  </li>
+                  {% else %}
+                  <li class="page-item disabled">
+                    <a class="page-link">&raquo;</a>
+                  </li>
+                  {% endif %}
+                </ul>
+                {% endif %}
+              </div>
+            </tr>
+          </tfoot>
+      </table>
+      
+    </div>
+    <div class="card-footer"></div>
+  </div>
+</div>
+
+{% endblock %}

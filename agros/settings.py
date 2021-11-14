@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ghc0ws@49q@$yd9x0r+k#xgeo*u8b!6#ll03&m!lf9%vns4y8+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://agros-admin.herokuapp.com']
+ALLOWED_HOSTS = ['agros-admin.herokuapp.com']
 
 
 # Application definition

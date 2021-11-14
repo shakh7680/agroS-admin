@@ -31,8 +31,7 @@ class Contract(models.Model):
     farmer_id = models.ManyToManyField(Farmer, related_name='farmer')
     investor_id = models.ManyToManyField(Investor, related_name='investor')
     amount = models.IntegerField()
-    def __str__(self):
-        return self.amount
+    
 
 # Collabration
 class Seminar(models.Model):

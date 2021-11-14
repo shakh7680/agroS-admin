@@ -1,0 +1,1 @@
+web: gunicorn agros-admin.wsgi --log-file -

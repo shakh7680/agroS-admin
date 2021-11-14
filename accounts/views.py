@@ -50,9 +50,9 @@ def login(request):
                 return redirect('dashboard')
         else:
             messages.error(request,'Invalid ceradentials!')
-            return render(request, 'accounts/home.html')
+            return render(request, 'home.html')
     else:
-        return render(request, 'accounts/home.html')
+        return render(request, 'home.html')
 
 def admin_dashboard(request): 
     return render(request, 'accounts/admin/admin_dashboard.html')
